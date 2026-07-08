@@ -1,9 +1,67 @@
-import {possibleGuess} from "./words.js"
+import { possibleGuess } from "./words.js"
 import { possibleWords } from "./words.js"
+
+console.log(possibleGuess.length)
+
+const keys = {
+    0: 'q',
+    1: 'w',
+    2: 'e',
+    3: 'r',
+    4: 't',
+    5: 'y',
+    6: 'u',
+    7: 'i',
+    8: 'o',
+    9: 'p',
+    10: 'a',
+    11: 's',
+    12: 'd',
+    13: 'f',
+    14: 'g',
+    15: 'h',
+    16: 'j',
+    17: 'k',
+    18: 'l',
+    19: 'z',
+    20: 'x',
+    21: 'c',
+    22: 'v',
+    23: 'b',
+    24: 'n',
+    25: 'm'
+};
+
+function addKeys() {
+    let workingRow = 1
+    for (let i in keys) {
+        console.log('ee')
+        document.getElementById(`rowKey${workingRow}`).insertAdjacentHTML('beforeend',
+            `
+                <button id="${keys[i]}" class="key col-1 py-2" onclick="keyPress('${keys[i]}')">${keys[i].toUpperCase()}</button>        
+            `
+        )
+        if (i == 9) {
+            workingRow = 2
+        }
+        if (i == 18) {
+            workingRow = 3
+        }
+    }
+    document.getElementById(`rowKey${workingRow}`).insertAdjacentHTML('beforeend',
+        `
+        <button id="enter" class="key col-1 py-2 enter" onclick="keyPress('enter')">&rarr;</button>
+
+        `
+    )
+
+}
+window.addKeys = addKeys
+addKeys()
 
 
 let realWord = possibleWords[Math.floor(Math.random() * possibleWords.length)]
-
+console.log(realWord)
 
 
 let word = ""
@@ -33,262 +91,47 @@ let keyBoxes = document.querySelectorAll(".key")
 
 
 
-const keys = {
-    "KeyA": () => {
-        if (character <= 5) {
-            word += "a";
-            document.getElementById("guess-" + guess + "-" + character).innerHTML = "A"
-            document.getElementById("guess-" + guess + "-" + character).classList.add("wordIn", "box-big-small")
-            character += 1
-        };
-    },
-    "KeyB": () => {
-        if (character <= 5) {
-            word += "b";
-            document.getElementById("guess-" + guess + "-" + character).innerHTML = "B"
-            document.getElementById("guess-" + guess + "-" + character).classList.add("wordIn", "box-big-small")
 
-            character += 1
-        };
-    },
-    "KeyC": () => {
-        if (character <= 5) {
-            word += "c";
-            document.getElementById("guess-" + guess + "-" + character).innerHTML = "C"
-            document.getElementById("guess-" + guess + "-" + character).classList.add("wordIn", "box-big-small")
+document.addEventListener('keydown', logKey);
+function logKey(e) {
+    if (e.code.length == 4) {
+        keyPress(e.code[3].toLowerCase())
+    }
+    else {
+        keyPress(e.code)
+    }
+}
+window.logKey = logKey
 
-            character += 1
-        };
-    },
-    "KeyD": () => {
-        if (character <= 5) {
-            word += "d";
-            document.getElementById("guess-" + guess + "-" + character).innerHTML = "D"
-            document.getElementById("guess-" + guess + "-" + character).classList.add("wordIn", "box-big-small")
 
-            character += 1
-        };
-    },
-    "KeyE": () => {
-        if (character <= 5) {
-            word += "e";
-            document.getElementById("guess-" + guess + "-" + character).innerHTML = "E"
-            document.getElementById("guess-" + guess + "-" + character).classList.add("wordIn", "box-big-small")
-
-            character += 1
-        };
-    },
-    "KeyF": () => {
-        if (character <= 5) {
-            word += "f";
-            document.getElementById("guess-" + guess + "-" + character).innerHTML = "F"
-            document.getElementById("guess-" + guess + "-" + character).classList.add("wordIn", "box-big-small")
-            character += 1
-        };
-    },
-    "KeyG": () => {
-        if (character <= 5) {
-            word += "g";
-            document.getElementById("guess-" + guess + "-" + character).innerHTML = "G"
-            document.getElementById("guess-" + guess + "-" + character).classList.add("wordIn", "box-big-small")
-
-            character += 1
-        };
-    },
-    "KeyH": () => {
-        if (character <= 5) {
-            word += "h";
-            document.getElementById("guess-" + guess + "-" + character).innerHTML = "H"
-            document.getElementById("guess-" + guess + "-" + character).classList.add("wordIn", "box-big-small")
-
-            character += 1
-        };
-    },
-    "KeyI": () => {
-        if (character <= 5) {
-            word += "i";
-            document.getElementById("guess-" + guess + "-" + character).innerHTML = "I"
-            document.getElementById("guess-" + guess + "-" + character).classList.add("wordIn", "box-big-small")
-
-            character += 1
-        };
-    },
-    "KeyJ": () => {
-        if (character <= 5) {
-            word += "j";
-            document.getElementById("guess-" + guess + "-" + character).innerHTML = "J"
-            document.getElementById("guess-" + guess + "-" + character).classList.add("wordIn", "box-big-small")
-
-            character += 1
-        };
-    },
-    "KeyK": () => {
-        if (character <= 5) {
-            word += "k";
-            document.getElementById("guess-" + guess + "-" + character).innerHTML = "K"
-            document.getElementById("guess-" + guess + "-" + character).classList.add("wordIn", "box-big-small")
-
-            character += 1
-        };
-    },
-    "KeyL": () => {
-        if (character <= 5) {
-            word += "l";
-            document.getElementById("guess-" + guess + "-" + character).innerHTML = "L"
-            document.getElementById("guess-" + guess + "-" + character).classList.add("wordIn", "box-big-small")
-
-            character += 1
-        };
-    },
-    "KeyM": () => {
-        if (character <= 5) {
-            word += "m";
-            document.getElementById("guess-" + guess + "-" + character).innerHTML = "M"
-            document.getElementById("guess-" + guess + "-" + character).classList.add("wordIn", "box-big-small")
-
-            character += 1
-        };
-    },
-    "KeyN": () => {
-        if (character <= 5) {
-            word += "n";
-            document.getElementById("guess-" + guess + "-" + character).innerHTML = "N"
-            document.getElementById("guess-" + guess + "-" + character).classList.add("wordIn", "box-big-small")
-
-            character += 1
-        };
-    },
-    "KeyO": () => {
-        if (character <= 5) {
-            word += "o";
-            document.getElementById("guess-" + guess + "-" + character).innerHTML = "O"
-            document.getElementById("guess-" + guess + "-" + character).classList.add("wordIn", "box-big-small")
-
-            character += 1
-        };
-    },
-    "KeyP": () => {
-        if (character <= 5) {
-            word += "p";
-            document.getElementById("guess-" + guess + "-" + character).innerHTML = "P"
-            document.getElementById("guess-" + guess + "-" + character).classList.add("wordIn", "box-big-small")
-
-            character += 1
-        };
-    },
-    "KeyQ": () => {
-        if (character <= 5) {
-            word += "q";
-            document.getElementById("guess-" + guess + "-" + character).innerHTML = "Q"
-            document.getElementById("guess-" + guess + "-" + character).classList.add("wordIn", "box-big-small")
-
-            character += 1
-        };
-    },
-    "KeyR": () => {
-        if (character <= 5) {
-            word += "r";
-            document.getElementById("guess-" + guess + "-" + character).innerHTML = "R"
-            document.getElementById("guess-" + guess + "-" + character).classList.add("wordIn", "box-big-small")
-
-            character += 1
-        };
-    },
-    "KeyS": () => {
-        if (character <= 5) {
-            word += "s";
-            document.getElementById("guess-" + guess + "-" + character).innerHTML = "S"
-            document.getElementById("guess-" + guess + "-" + character).classList.add("wordIn", "box-big-small")
-
-            character += 1
-        };
-    },
-    "KeyT": () => {
-        if (character <= 5) {
-            word += "t";
-            document.getElementById("guess-" + guess + "-" + character).innerHTML = "T"
-            document.getElementById("guess-" + guess + "-" + character).classList.add("wordIn", "box-big-small")
-
-            character += 1
-        };
-    },
-    "KeyU": () => {
-        if (character <= 5) {
-            word += "u";
-            document.getElementById("guess-" + guess + "-" + character).innerHTML = "U"
-            document.getElementById("guess-" + guess + "-" + character).classList.add("wordIn", "box-big-small")
-
-            character += 1
-        };
-    },
-    "KeyV": () => {
-        if (character <= 5) {
-            word += "v";
-            document.getElementById("guess-" + guess + "-" + character).innerHTML = "V"
-            document.getElementById("guess-" + guess + "-" + character).classList.add("wordIn", "box-big-small")
-
-            character += 1
-        };
-    },
-    "KeyW": () => {
-        if (character <= 5) {
-            word += "w";
-            document.getElementById("guess-" + guess + "-" + character).innerHTML = "W"
-            document.getElementById("guess-" + guess + "-" + character).classList.add("wordIn", "box-big-small")
-
-            character += 1
-        };
-    },
-    "KeyX": () => {
-        if (character <= 5) {
-            word += "x";
-            document.getElementById("guess-" + guess + "-" + character).innerHTML = "X"
-            document.getElementById("guess-" + guess + "-" + character).classList.add("wordIn", "box-big-small")
-
-            character += 1
-        };
-    },
-    "KeyY": () => {
-        if (character <= 5) {
-            word += "y";
-            document.getElementById("guess-" + guess + "-" + character).innerHTML = "Y"
-            document.getElementById("guess-" + guess + "-" + character).classList.add("wordIn", "box-big-small")
-
-            character += 1
-        };
-    },
-    "KeyZ": () => {
-        if (character <= 5) {
-            word += "z";
-            document.getElementById("guess-" + guess + "-" + character).innerHTML = "Z"
-            document.getElementById("guess-" + guess + "-" + character).classList.add("wordIn", "box-big-small", "box-big-small")
-
-            character += 1
-        };
-    },
-    "Backspace": () => {
+function keyPress(key) {
+    console.log(key)
+    if (character <= 5 && key.length == 1) {
+        word += key;
+        document.getElementById("guess-" + guess + "-" + character).innerHTML = key.toUpperCase()
+        document.getElementById("guess-" + guess + "-" + character).classList.add("wordIn", "box-big-small")
+        character += 1
+    }
+    else if (key == "Backspace") {
         if (character > 1) {
             character -= 1
             word = word.slice(0, -1)
             document.getElementById("guess-" + guess + "-" + character).innerHTML = " "
             document.getElementById("guess-" + guess + "-" + character).classList.remove("wordIn", "box-big-small", "box-big-small")
-
-
-
         }
 
-    },
-    "Enter": () => {
+    }
+    else if (key == "Enter") {
         console.log("enter")
+
         if (character == 6 && possibleGuess.includes(word) || character == 6 && possibleWords.includes(word)) {
             console.log("enterIn")
-
 
             let realWordArr = Array.from(realWord)
             let guessWordArr = Array.from(word)
 
             if (realWord === word) {
-                for (i = 0; i <= 4; i++) {
+                for (let i = 0; i <= 4; i++) {
                     document.getElementById("guess-" + guess + "-" + (i + 1)).classList.add("enter-green")
                 }
 
@@ -299,7 +142,7 @@ const keys = {
             else if (realWord != word && guess < 6) {
                 console.log("enterInNotWord")
 
-                for (i = 0; i <= 4; i++) {
+                for (let i = 0; i <= 4; i++) {
 
 
                     if (!realWordArr.includes(guessWordArr[i])) {
@@ -341,21 +184,10 @@ const keys = {
 
             }, 400);
         }
-    },
-
+    }
 
 }
-
-window.keys = keys
-
-
-document.addEventListener('keydown', logKey);
-function logKey(e) {
-    keys[e.code]()
-}
-
-window.logKey = logKey
-
+window.keyPress = keyPress
 
 
 function win() {
@@ -395,15 +227,6 @@ function playAgain() {
         box.innerHTML = "&nbsp"
         box.classList = "wordbox"
     })
-
-    keyBoxes.forEach(key => {
-        key.classList = "key"
-        key.classList.add("col-1", "py-2")
-    })
-
-    document.getElementById("enter").classList.add("enter")
-    document.getElementById("backspace").classList.add("cross")
-
 }
 
 window.playAgain = playAgain

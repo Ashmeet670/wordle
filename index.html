@@ -74,23 +74,15 @@
 
         <section id="win-blur" class="">
 
-            <div class="d-flex bg-lblack align-items-center">
-
-                <a href="https://ashmeet670.github.io/mini_games/" class="home p-3">
+            <div class="home mt-2">
+                <a href="https://ashmeet670.github.io/mini_games/" class="me-auto p-3">
                     <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="gray"
                         class="bi bi-house-door-fill" viewBox="0 0 16 16">
                         <path
                             d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5" />
                     </svg>
                 </a>
-
-
-                <div class=" text-center py-3 title mx-auto">
-                    <div class="text-primary fs-1 align-items-center d-flex justify-content-center ">Wordle<sup
-                            class="fs-5"> Infinite</sup></div>
-                </div>
             </div>
-
             <!-- boxes -->
             <div class="container justify-content-center fixed-center mt-2">
 
@@ -145,42 +137,17 @@
             <!-- keys -->
             <div class="container-fluid fixed-bottom mb-0 pb-2">
 
-                <div class="row key-row">
-                    <button id="q" class="key col-1 py-2" onclick="keys['KeyQ']()">Q</button>
-                    <button id="w" class="key col-1 py-2" onclick="keys['KeyW']()">W</button>
-                    <button id="e" class="key col-1 py-2" onclick="keys['KeyE']()">E</button>
-                    <button id="r" class="key col-1 py-2" onclick="keys['KeyR']()">R</button>
-                    <button id="t" class="key col-1 py-2" onclick="keys['KeyT']()">T</button>
-                    <button id="y" class="key col-1 py-2" onclick="keys['KeyY']()">Y</button>
-                    <button id="u" class="key col-1 py-2" onclick="keys['KeyU']()">U</button>
-                    <button id="i" class="key col-1 py-2" onclick="keys['KeyI']()">I</button>
-                    <button id="o" class="key col-1 py-2" onclick="keys['KeyO']()">O</button>
-                    <button id="p" class="key col-1 py-2" onclick="keys['KeyP']()">P</button>
+                <div id="rowKey1" class="row key-row">
+
                 </div>
 
-                <div class="row key-row">
-                    <button id="a" class="key col-1 py-2" onclick="keys['KeyA']()">A</button>
-                    <button id="s" class="key col-1 py-2" onclick="keys['KeyS']()">S</button>
-                    <button id="d" class="key col-1 py-2" onclick="keys['KeyD']()">D</button>
-                    <button id="f" class="key col-1 py-2" onclick="keys['KeyF']()">F</button>
-                    <button id="g" class="key col-1 py-2" onclick="keys['KeyG']()">G</button>
-                    <button id="h" class="key col-1 py-2" onclick="keys['KeyH']()">H</button>
-                    <button id="j" class="key col-1 py-2" onclick="keys['KeyJ']()">J</button>
-                    <button id="k" class="key col-1 py-2" onclick="keys['KeyK']()">K</button>
-                    <button id="l" class="key col-1 py-2" onclick="keys['KeyL']()">L</button>
+                <div id="rowKey2" class="row key-row">
+
                 </div>
 
-                <div class="row key-row">
-
-                    <button id="backspace" class="key cross col-1 py-2" onclick="keys['Backspace']()">&#10540;</button>
-                    <button id="z" class="key col-1 py-2" onclick="keys['KeyZ']()">Z</button>
-                    <button id="x" class="key col-1 py-2" onclick="keys['KeyX']()">X</button>
-                    <button id="c" class="key col-1 py-2" onclick="keys['KeyC']()">C</button>
-                    <button id="v" class="key col-1 py-2" onclick="keys['KeyV']()">V</button>
-                    <button id="b" class="key col-1 py-2" onclick="keys['KeyB']()">B</button>
-                    <button id="n" class="key col-1 py-2" onclick="keys['KeyN']()">N</button>
-                    <button id="m" class="key col-1 py-2" onclick="keys['KeyM']()">M</button>
-                    <button id="enter" class="key enter col-1 py-2" onclick="keys['Enter']()">&rarr;</button>
+                <div id="rowKey3" class="row key-row">
+                    <button id="backspace" class="key col-1 py-2 backspace"
+                        onclick="keys['Backspace']()">&#10540;</button>
 
                 </div>
 
