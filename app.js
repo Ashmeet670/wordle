@@ -50,7 +50,7 @@ function addKeys() {
     }
     document.getElementById(`rowKey${workingRow}`).insertAdjacentHTML('beforeend',
         `
-        <button id="enter" class="key col-1 py-2 enter" onclick="keyPress('enter')">&rarr;</button>
+        <button id="enter" class="key col-1 py-2 enter" onclick="keyPress('Enter')">&rarr;</button>
 
         `
     )
@@ -91,7 +91,7 @@ let keyBoxes = document.querySelectorAll(".key")
 
 
 
-
+//takes input from keyboard and then passes to the function to do the baki jo bhi stuff hai aage
 document.addEventListener('keydown', logKey);
 function logKey(e) {
     if (e.code.length == 4) {
@@ -122,7 +122,7 @@ function keyPress(key) {
 
     }
     else if (key == "Enter") {
-        console.log("enter")
+
 
         if (character == 6 && possibleGuess.includes(word) || character == 6 && possibleWords.includes(word)) {
             console.log("enterIn")
@@ -226,7 +226,14 @@ function playAgain() {
     wordBoxes.forEach(box => {
         box.innerHTML = "&nbsp"
         box.classList = "wordbox"
-    })
+    });
+
+    keyBoxes.forEach(key => {
+        key.classList = "key col-1 py-2"
+        console.log("e")
+    });
+    document.getElementById("enter").classList = "key col-1 py-2 enter"
+    document.getElementById("backspace").classList = "key col-1 py-2 backspace"
 }
 
 window.playAgain = playAgain
