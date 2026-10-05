@@ -68,6 +68,7 @@ let word = ""
 let guess = 1
 let character = 1
 let winsteak = 0
+let paused = false
 
 let backgroundBlur = document.getElementById("win-blur")
 
@@ -94,18 +95,22 @@ let keyBoxes = document.querySelectorAll(".key")
 //takes input from keyboard and then passes to the function to do the baki jo bhi stuff hai aage
 document.addEventListener('keydown', logKey);
 function logKey(e) {
-    if (e.code.length == 4) {
+
+
+    if (e.code.length == 4 && !paused) {
+        //all alphabet wali unka format hai key_ hence index [3] liya hai
         keyPress(e.code[3].toLowerCase())
     }
-    else {
+    else if (!paused) {
+        //enter aur backspace
         keyPress(e.code)
+        console.log(e.code)
     }
 }
 window.logKey = logKey
 
 
 function keyPress(key) {
-    console.log(key)
     if (character <= 5 && key.length == 1) {
         word += key;
         document.getElementById("guess-" + guess + "-" + character).innerHTML = key.toUpperCase()
@@ -191,6 +196,7 @@ window.keyPress = keyPress
 
 
 function win() {
+    paused = true
     winBox.classList.remove("d-none")
     backgroundBlur.classList.add("opactiy-20", "blur")
     winsteak += 1
@@ -201,6 +207,7 @@ window.win = win
 
 
 function loose() {
+    paused = true
     looseBox.classList.remove("d-none")
     backgroundBlur.classList.add("opactiy-20", "blur")
     winsteak = 0
@@ -234,6 +241,7 @@ function playAgain() {
     });
     document.getElementById("enter").classList = "key col-1 py-2 enter"
     document.getElementById("backspace").classList = "key col-1 py-2 backspace"
+    paused = false
 }
 
 window.playAgain = playAgain
